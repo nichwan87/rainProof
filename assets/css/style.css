@@ -1,0 +1,19 @@
+:root {
+    --blue: rgb(11,0,122);
+    --lightblue: rgb(201,191,222);
+    --light: snow;
+    --darkblue: rgb(1,2,55);
+    --red: rgb(235,12,1);
+    --green: rgb(72,235,12);
+    --dark: #333;
+  }
+  
+
+  /*Universal Selector*/
+  body {
+    font-family: garmond;
+    font-weight: 300;
+    background-color: var(--light);
+    background-image: url(../images/DSCF0408.JPG);
+    color: var(--darkblue);
+  }
