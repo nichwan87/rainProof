@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
@@ -19,18 +13,64 @@
     <title>RainProof Event Planner</title>
   </head>
   <body>
-      <head>
 
-      </head>
-      <main>
-          <section id="futureEvents" class="lhsContainer">
+      <header>
+        <!-- header title & content -->
+        <section class="container">
+        <h1 class="title is-1">RainProof</h1>
+        <p class="subtitle">Subtitle text..</p>
 
-          </section>
-        <section id="dailyAnalysis" class="mainContainer">
+          <!-- City search input and search button -->
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input" type="text" placeholder="Enter your city...">
+          </div>
+          <div class="control">
+            <a class="button is-info">
+              Search
+            </a>
+          </div>
+        </div>
+
+      </section>
+      </header>
+
+      <main class="container">
+        <section class="columns">
+        
+          <!-- Left hand side column -->
+          <div class = "column is-one-third-widescreen">
+            <h3 class="title is-3">Left Side</h3>
+            <div class = "left-results is-fluid">
+              <!-- content to go here -->
+
+            </div>
+            </div>
+
+            <!-- right hand side column -->
+          <div class = "column">
+          <h3 class="title is-3">Results Title</h3>
+          <div class = "results is-fluid">
+            <!-- filtered results to show here -->
+            <!-- temporary list to be dynamicly loaded later with results -->
+            <ul> 
+              <li>Result 1</li>
+              <li>Result 2</li>
+              <li>Result 3</li>
+              <li>Result 4</li>
+              <li>Result 5</li>
+            </ul>
+          </div>
+          </div>
+
+        </section>
       </main>
-      <footer>
 
+      
+      <footer>
+      
       </footer>
+
   </body>
   <script src="./assets/js/script.js"></script>
 </html>

@@ -1,19 +1,124 @@
+/* Bulma Framework */
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
+
 :root {
-    --blue: rgb(11,0,122);
-    --lightblue: rgb(201,191,222);
-    --light: snow;
-    --darkblue: rgb(1,2,55);
-    --red: rgb(235,12,1);
-    --green: rgb(72,235,12);
-    --dark: #333;
+    --transition: all 0.6s ease;
+    --black:#000; 
+    --white:#fff;
+    --lightgrey: #f9f9f9;
+    --midgrey:  #dbdbdb;
+    --blue:#3298dc;
   }
   
 
-  /*Universal Selector*/
-  body {
-    font-family: garmond;
-    font-weight: 300;
-    background-color: var(--light);
-    background-image: url(../images/DSCF0408.JPG);
-    color: var(--darkblue);
+/* Universal selector */
+* {
+ 
+}
+
+/* Element Selectors */
+
+html {
+
+  margin: 0;
+  padding: 0;
+
+}
+
+
+ul {
+  list-style: none;
+}
+
+li {
+  border-bottom: 1px solid var(--midgrey);
+  padding: 20px 0;;
+
+}
+
+a { 
+  transition: var(--transition);
+
+}
+
+a:hover {
+  transition: var(--transition);
+}
+
+header {
+  padding: 30px;
+  
+}
+
+header .input {
+  min-width: 250px;
+}
+
+header .field.has-addons {
+  justify-content: center;
+}
+
+main {
+  padding: 40px;
+
+}
+
+main .title {
+  text-align: left;
+
+}
+
+footer {
+  padding: 20px;
+}
+
+/* Class Selectors */
+
+.title {
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.container.is-fluid {
+justify-content: center;
+display: flex;
+flex-direction: column;
+
+}
+
+.column {
+
+}
+
+.column:first-child {
+  margin: 0px 20px 0px 0px;
+}
+
+.results {
+
+}
+
+.results li:nth-child(even) { 
+  background: var(--lightgrey);
+}
+
+
+
+
+
+
+/* Small Screens & Phone Sizes */
+@media screen and (max-width: 768px) {
+
+  .container.is-fluid {
+    padding: 10px;
   }
+
+  .column:first-child {
+    margin: 0px 0px 20px 0px;
+  }
+
+}
