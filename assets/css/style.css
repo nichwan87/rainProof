@@ -47,7 +47,7 @@ a:hover {
 
 header {
   padding: 30px;
-  
+  background-color: var(--lightgrey);
 }
 
 header .input {
@@ -90,7 +90,8 @@ flex-direction: column;
 }
 
 .column {
-
+  border-radius: 2px 25px 5px 5px;
+  border: 1px inset var(--midgrey);
 }
 
 .column:first-child {
@@ -121,4 +122,14 @@ flex-direction: column;
     margin: 0px 0px 20px 0px;
   }
 
+}
+
+/*time*/
+#now {
+  display: inline;
+  margin-left: 50%;
+  border-radius: 2px 25px 2px 25px;
+  padding: .5% 1% .5% 1%;
+  font-size: 14px;
+  font-weight: 600;
 }
