@@ -94,6 +94,11 @@ flex-direction: column;
   border: 1px inset var(--midgrey);
 }
 
+.column:hover {
+  border-radius: 2px 25px 5px 5px;
+  border: 1px outset var(--blue);
+}
+
 .column:first-child {
   margin: 0px 20px 0px 0px;
 }
@@ -106,6 +111,10 @@ flex-direction: column;
   background: var(--lightgrey);
 }
 
+
+.results li:hover {
+  font-weight: 500;
+}
 
 
 
