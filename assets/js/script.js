@@ -29,3 +29,14 @@ document.getElementById('now').innerHTML = today + ' @ ' + t_str;
  setTimeout(timer,1000);
 }
 
+const findBtn = document.querySelector("#findBtn");
+const listEl = document.querySelector("#results");
+
+findBtn.addEventListener("click" , ()=> {
+    listEl.style.display = "block";
+})
+
+//https://developers.google.com/maps/
+
+
+// 'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap';
