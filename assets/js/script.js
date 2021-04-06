@@ -2,6 +2,13 @@
 //Sets top of page current date and time
 
 
+//Use this key in your application by passing it with key=API_KEY parameter.
+// API KEY - Google maps AIzaSyCrmBGhaxGcXq7p5mtkvQnqmfHj-WIaRLU
+
+
+//Eventbrite API Key- BXFEBVDT7ZIOVF4W7X73
+
+
 const date = new Date();
 
 const today = date.toDateString();
@@ -28,15 +35,3 @@ if(hours > 11){
 document.getElementById('now').innerHTML = today + ' @ ' + t_str;
  setTimeout(timer,1000);
 }
-
-const findBtn = document.querySelector("#findBtn");
-const listEl = document.querySelector("#results");
-
-findBtn.addEventListener("click" , ()=> {
-    listEl.style.display = "block";
-})
-
-//https://developers.google.com/maps/
-
-
-// 'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap';
