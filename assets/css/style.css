@@ -156,8 +156,8 @@ flex-direction: column;
 
 /*time*/
 #now {
-  display: inline;
-  margin-left: 50%;
+  display: block;
+  margin-left: 42%;
   border-radius: 2px 25px 2px 25px;
   padding: .5% 1% .5% 1%;
   font-size: 14px;
