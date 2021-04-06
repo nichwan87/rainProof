@@ -124,8 +124,8 @@ flex-direction: column;
   margin: 0px 20px 0px 0px;
 }
 
-.results {
-
+.results li {
+  display: none;
 }
 
 .results li:nth-child(even) { 
@@ -138,7 +138,15 @@ flex-direction: column;
 }
 
 
-
+/*time*/
+#now {
+  display: block;
+  margin-left: 42%;
+  border-radius: 2px 25px 2px 25px;
+  padding: .5% 1% .5% 1%;
+  font-size: 14px;
+  font-weight: 600;
+}
 
 
 /* Small Screens & Phone Sizes */
@@ -154,12 +162,3 @@ flex-direction: column;
 
 }
 
-/*time*/
-#now {
-  display: block;
-  margin-left: 42%;
-  border-radius: 2px 25px 2px 25px;
-  padding: .5% 1% .5% 1%;
-  font-size: 14px;
-  font-weight: 600;
-}
