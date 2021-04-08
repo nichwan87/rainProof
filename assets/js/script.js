@@ -3,7 +3,6 @@ var googleKey = 'AIzaSyBGnpmmzWpz-SVHgMnChfl2Vw3_jkf6cCk';
 var page = 0;
 var map;
 
-
 // add Moment.js for current date 
 // placeholder when page is loaded
 $(document).ready(function() {
@@ -67,7 +66,7 @@ backBtn.addEventListener('click', function(event) {
 // main Events load
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=EMZOAA3KlATktn9bwYV8aKh7yFnEm92G&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?countryCode=AU&apikey=EMZOAA3KlATktn9bwYV8aKh7yFnEm92G&page="+page,
     async:true,
     dataType: "json",
     success: function(json) {
