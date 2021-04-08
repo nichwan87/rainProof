@@ -22,8 +22,9 @@ dropdown.addEventListener('click', function(event) {
   event.stopPropagation();
   dropdown.classList.toggle('is-active');
   $.each(array, function(i, p) {
-    $('#dropdown-list').append($('<a href="#" class="dropdown-item"></div>').val(p).html(p));
+    $('#dropdown-list').append($('<a href="#" class="dropdown-item"></a>').val(p).html(p));
   })
+ 
 });
 
 
@@ -114,6 +115,7 @@ function showEvents(json) {
   }
 
 
+
 // arrows on click change page up or down
 $('#prev').click(function() {
     getEvents(--page);
@@ -158,7 +160,7 @@ function getAttraction(id) {
     $('#attraction img').first().attr('src',json.images[0].url);
     $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
     $('#ticketLink').text(json.url);
-   /*  $('#infoText').text(json._embedded.events[0].address.line1); */
+    $('#infoText').text(json._embedded.venues[0].address.line1);
    
   }
   

@@ -177,6 +177,8 @@ flex-direction: column;
 
 #attraction {
   margin: 10px 0;
+  height: fit-content;
+  overflow-y: scroll;
 }
 
 
