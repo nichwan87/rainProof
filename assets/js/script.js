@@ -25,6 +25,25 @@ dropdown.addEventListener('click', function(event) {
 
 
 
+/* show map when list item is clicked */
+var listItem = document.querySelectorAll('.list-group-item')
+listItem.forEach(function(el){
+  el.addEventListener('click', function () {
+    $('#map_div').show();
+  });
+});
+
+
+/* hide map when back buttonis clicked */
+var backBtn = document.querySelector('#backBtn');
+backBtn.addEventListener('click', function(event) {
+    $('#map_div').hide();
+
+});
+
+
+
+
 
 // load events function depending on page
   function getEvents(page) {
