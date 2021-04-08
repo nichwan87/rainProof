@@ -1,13 +1,16 @@
 /* Bulma Framework */
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
 
+
 :root {
     --transition: all 0.6s ease;
     --black:#000; 
     --white:#fff;
     --lightgrey: #f9f9f9;
     --midgrey:  #dbdbdb;
+    --darkgrey: #333;
     --blue:#3298dc;
+    --primaryColor: #00d1b2;
   }
   
 
@@ -15,27 +18,6 @@
 * {
  
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
-/*ScrollBars*/
-::-webkit-scrollbar {
-  width: 17px;
-}
-
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px var(--lightgrey);
-  border-radius: 15px;
-  background-color: var(--midgrey);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--black);
-  border-radius: 15px;
-}
-
 
 /* Element Selectors */
 
@@ -59,6 +41,7 @@ li {
 
 a { 
   transition: var(--transition);
+  color: var(--darkgrey);;
 
 }
 
@@ -66,9 +49,17 @@ a:hover {
   transition: var(--transition);
 }
 
+
+h4 {
+
+}
+
 header {
   padding: 30px;
-  background-color: var(--lightgrey);
+  
+}
+#date {
+
 }
 
 header .input {
@@ -79,6 +70,33 @@ header .field.has-addons {
   justify-content: center;
 }
 
+.dropdown {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.dropdown-trigger {
+  
+}
+
+.dropdown-trigger .button {
+  width: 250px;
+
+}
+
+.dropdown-trigger .button span {
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-menu {
+  right: 0;
+  margin: 0 auto;
+  width: 250px;
+  left: -25px;
+}
 main {
   padding: 40px;
 
@@ -111,41 +129,97 @@ flex-direction: column;
 }
 
 .column {
-  border-radius: 2px 10px 10px 25px;
-  border: 1px inset var(--midgrey);
-  overflow-y: scroll;
-}
 
-.column:hover {
-  border: 1px outset var(--blue);
 }
 
 .column:first-child {
-  margin: 0px 20px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
-#results {
-  display: none;
+.panel-heading  {
+  box-shadow: 0px 5px 5px #ccc;
+  display: flex;
 }
 
-.results li:nth-child(even) { 
-  background: var(--lightgrey);
+.list-group-item {
+
 }
 
-
-.results li:hover {
-  font-weight: 500;
-}
-
-
-/*time*/
-#now {
-  display: block;
-  margin-left: 42%;
-  border-radius: 2px 25px 2px 25px;
-  padding: .5% 1% .5% 1%;
-  font-size: 14px;
+.list-group-item-heading {
+  font-size: 20px;
   font-weight: 600;
+}
+
+.list-group-item {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  float: left;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+
+}
+
+.list-group-item:hover {
+  color: var(--primaryColor);
+}
+
+.list-group-item:nth-child(even) { 
+  background: var(--lightgrey);
+ 
+}
+
+.pager li {
+  border-bottom: none;
+  background: none;
+}
+
+#attraction {
+  margin: 10px 0;
+}
+
+
+#backBtn {
+  text-align: right;
+  color: var(--white);
+  transition: var(--transition);
+}
+
+#backBtn:hover {
+  color: var(--darkgrey);;
+}
+
+.panel-footer {
+
+}
+
+.pager {
+  margin: 0 auto;
+}
+.pager li {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  width: 45px;
+  text-align: center;
+}
+
+.pager li a:hover {
+  color: var(--primaryColor);
+
+}
+.pager span {
+  font-size: 20px;
+}
+
+.next {
+  float: right;
+}
+
+
+#map_div {
+  
 }
 
 
@@ -157,8 +231,8 @@ flex-direction: column;
   }
 
   .column:first-child {
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 0px 0px;
+
   }
 
 }
-

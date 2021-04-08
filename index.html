@@ -10,6 +10,13 @@
     />
     <link rel="stylesheet" href="./assets/css/reset.css"/>
     <link rel="stylesheet" href="./assets/css/style.css"/>
+    <!-- bulma calendar extension -->
+    <link rel="stylesheet" href="./assets/css/bulma-calendar.min.css"/>
+    <!-- Font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!-- GoogleMaps -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
+
     <title>RainProof Event Planner</title>
   </head>
   <body>
@@ -18,21 +25,57 @@
         <!-- header title & content -->
         <section class="container">
         <h1 class="title is-1">RainProof</h1>
-        
-        <div class="subtitle">It is now: </div><div id="now">DDMMYYY HHMM</div><br>
+      
+
+         <!-- date picker -->
+         <div class="field has-addons">
+          <div class="control">
+        <input class="input" type="date" name="date" id="date" data-select="datepicker">
+      </div>
+    </div>
+
+
+
+    <div class="dropdown">
+      <div class="dropdown-trigger control">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+          <span>Select location</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content" id="dropdown-list">
+
+          <a href="#" class="dropdown-item">
+            Dropdown item
+          </a>
+          <a class="dropdown-item">
+            Other dropdown item
+          </a>
+          <a href="#" class="dropdown-item">
+            Active dropdown item
+          </a>
+          <a href="#" class="dropdown-item">
+            Other dropdown item
+          </a>
+
+      </div>
+    </div>
 
 
           <!-- City search input and search button -->
-        <div class="field has-addons">
+<!--         <div class="field has-addons">
           <div class="control">
             <input class="input" type="text" placeholder="Enter your city...">
           </div>
           <div class="control">
-            <a id="findBtn" class="button is-info">
+            <a class="button is-primary">
               Search
             </a>
           </div>
-        </div>
+        </div> -->
 
       </section>
       </header>
@@ -40,31 +83,105 @@
       <main class="container">
         <section class="columns">
         
-  
-            <!-- right hand side column -->
+          <!-- right hand side column -->
           <div class = "column">
-          <h3 class="title is-3">Results Title</h3>
-          <div class = "results is-fluid">
+          <div class = "results is-fluid" id="results">
             <!-- filtered results to show here -->
-            <!-- temporary list to be dynamicly loaded later with results -->
-            <ul> 
-              <li id="results">Result 1</li>
-              <li id="results">Result 2</li>
-              <li id="results">Result 3</li>
-              <li id="results">Result 4</li>
-              <li id="results">Result 5</li>
-            </ul>
+            <!-- main events list -->
+            <div id='events-panel' class="panel panel-primary">
+
+              <div class="panel-heading has-background-primary has-text-white">
+                <h3 class="panel-title">Events</h3>
+              </div>
+
+              <div class="panel-body">
+                <div id="events" class="list-group">
+                  <!-- result 1 -->
+                  <a href="#" class="list-group-item" id="listItem">
+                    <h4 class="list-group-item-heading"></h4>
+                    <p class="list-group-item-text"></p>
+                    <p class="venue"></p>
+                  </a>
+                    <!-- result 2 -->
+                  <a href="#" class="list-group-item" id="listItem">
+                    <h4 class="list-group-item-heading"></h4>
+                    <p class="list-group-item-text"></p>
+                    <p class="venue"></p>
+                  </a>
+                  <!-- result 3 -->
+                  <a href="#" class="list-group-item" id="listItem">
+                    <h4 class="list-group-item-heading"></h4>
+                    <p class="list-group-item-text"></p>
+                    <p class="venue"></p>
+                  </a>
+                    <!-- result 4 -->
+                  <a href="#" class="list-group-item" id="listItem">
+                    <h4 class="list-group-item-heading"></h4>
+                    <p class="list-group-item-text"></p>
+                    <p class="venue"></p>
+                  </a>
+
+                </div>
+              </div>
+
+              <div class="panel-footer">
+                  <!-- page scroll arrows -->
+                  <ul class="pager">
+                    <li id="prev" class="previous"><a><span aria-hidden="true">&larr;</span></a></li>
+                    <li id="next" class="next"><a><span aria-hidden="true">&rarr;</span></a></li>
+                  </ul>
+              
+              </div>
+              
+            </div>
+
+
+
+                
+              <!-- single event panel -->
+            <div id='attraction-panel' class="panel panel-primary">
+              <div class="panel-heading has-background-primary has-text-white">
+                <h3 class="column panel-title attractheader">Attraction</h3>
+                <a><h3 class="column panel-title attractheader" id="backBtn">Back</h3></a>
+              </div>
+    
+              <div id="attraction" class="columns">
+                <img class="column is-one-third" src="">
+                <div class= "column">
+                  <h4 class="list-group-item-heading">Attraction title</h4>
+                  <p id="classification"></p>
+                  <p id="infoText"></p>
+                  <a id="ticketLink"></a>
+                </div>
+
+              </div>
+            </div>
+
+
+
           </div>
           </div>
 
         </section>
+
+
+        <!-- Google Maps section -->
+        <section class="container">          
+
+          <div id="map_div" style="height: 400px;"></div>
+
+        </section>
+
+
       </main>
 
-      
-      <footer>
-      
-      </footer>
 
   </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/bulma-calendar.min.js"></script>
+ 
+
 </html>
