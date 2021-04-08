@@ -219,7 +219,7 @@ flex-direction: column;
 
 
 #map_div {
-  
+  display: none;
 }
 
 
