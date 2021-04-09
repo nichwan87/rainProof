@@ -3,7 +3,6 @@ var googleKey = 'AIzaSyBGnpmmzWpz-SVHgMnChfl2Vw3_jkf6cCk';
 var page = 0;
 var map;
 
-
 // add Moment.js for current date 
 // placeholder when page is loaded
 $(document).ready(function() {
@@ -15,13 +14,17 @@ $(document).ready(function() {
 
 
 /* locations dropdown opens on click */
+var array = ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"];
+
+
 var dropdown = document.querySelector('.dropdown');
 dropdown.addEventListener('click', function(event) {
   event.stopPropagation();
   dropdown.classList.toggle('is-active');
-  
+  $.each(array, function(i, p) {
+    $('#dropdown-list').append($('<a href="#" class="dropdown-item"></div>').val(p).html(p));
+  })
 });
-
 
 
 
@@ -42,15 +45,11 @@ backBtn.addEventListener('click', function(event) {
 });
 
 
-
-
-
 // load events function depending on page
   function getEvents(page) {
 //show hide panels 
   $('#events-panel').show();
   $('#attraction-panel').hide();
-
 
   if (page < 0) {
     page = 0;
@@ -63,11 +62,10 @@ backBtn.addEventListener('click', function(event) {
   }
 
 
-
 // main Events load
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=EMZOAA3KlATktn9bwYV8aKh7yFnEm92G&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?countryCode=AU&apikey=EMZOAA3KlATktn9bwYV8aKh7yFnEm92G&page="+page,
     async:true,
     dataType: "json",
     success: function(json) {
@@ -81,8 +79,6 @@ backBtn.addEventListener('click', function(event) {
   		   }
   });
 }
-
-
 
 
 function showEvents(json) {
@@ -118,8 +114,6 @@ function showEvents(json) {
   }
 
 
-
-
 // arrows on click change page up or down
 $('#prev').click(function() {
     getEvents(--page);
@@ -133,8 +127,6 @@ $('#prev').click(function() {
     getEvents(++page);
   });
   
-
-
 
 
 
