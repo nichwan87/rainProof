@@ -1,5 +1,5 @@
 var ticketAPI = 'EMZOAA3KlATktn9bwYV8aKh7yFnEm92G';
-var googleKey = 'AIzaSyBGnpmmzWpz-SVHgMnChfl2Vw3_jkf6cCk';
+var googleKey = 'AIzaSyDsTj7ImeafsqpFaMKu7wCZoooi0ktq1uw';
 var page = 0;
 var map;
 
@@ -166,7 +166,7 @@ function getAttraction(id) {
     $('#attraction img').first().attr('src',json.images[0].url);
     $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
     $('#ticketLink').text(json.url);
-   /*  $('#infoText').text(json._embedded.events[0].address.line1); */
+    // $('#infoText').text(json._embedded.venues[0].address.line1);
    
   }
   
@@ -175,13 +175,43 @@ function getAttraction(id) {
   getEvents(page);
 
 
+//start test
+//var googleKey = 'AIzaSyCrmBGhaxGcXq7p5mtkvQnqmfHj-WIaRLU';
+
+// function getLatLon()
 
 
+//how to get there, pathway to the api
+
+ // $('where to render i.d').text(json._embedded.venues[0].location);
+// url: "https://app.ticketmaster.com/discovery/v2/events.json?AIzaSyBGnpmmzWpz-SVHgMnChfl2Vw3_jkf6cCk",
 
 
+// fetch("https://app.ticketmaster.com/discovery/v2/attractions/"+id+".json?apikey=EMZOAA3KlATktn9bwYV8aKh7yFnEm92G")
+// .then (function (response){
+//   return response.json();
+// })
+// .then(function (data) {
+//   console.log(data)
+// })
+
+// AIzaSyDsTj7ImeafsqpFaMKu7wCZoooi0ktq1uw
+
+// function init() {
+//   var location = {lat: -25.363, lng: 131.044};
+//   var map = new google.maps.map(document.getElementZById("map_div"), {
+//     zoom: 14,
+//     center: location 
+//   });
+
+// var marker = new google.maps.Marker({
+//   position:location,
+//   map: map
+// });
+// }
 
 
-
+//end test
 
 
 
