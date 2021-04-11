@@ -179,7 +179,6 @@ flex-direction: column;
   margin: 10px 0;
 }
 
-
 #backBtn {
   text-align: right;
   color: var(--white);
@@ -187,7 +186,18 @@ flex-direction: column;
 }
 
 #backBtn:hover {
-  color: var(--darkgrey);;
+  color: var(--darkgrey);
+}
+
+#ticketLink {
+  color: var(--primaryColor);
+  transition: var(--transition);
+  font-weight: 600;
+  font-style: italic;
+}
+
+#ticketLink:hover {
+  color: var(--darkgrey);
 }
 
 .panel-footer {
