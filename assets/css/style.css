@@ -179,6 +179,10 @@ flex-direction: column;
   margin: 10px 0;
 }
 
+#attraction img {
+  height: 100%;
+}
+
 #backBtn {
   text-align: right;
   color: var(--white);
