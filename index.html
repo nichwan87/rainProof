@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-​
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,27 +17,27 @@
   <!-- GoogleMaps -->
   <script type="text/javascript"
     src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDsTj7ImeafsqpFaMKu7wCZoooi0ktq1uw&v=3&amp;"></script>
-​
+
   <title>RainProof Event Planner</title>
   <link rel="shortcut icon" href="./assets/files/favicon-32x32.png">
 </head>
-​
+
 <body>
-​
+
   <header>
     <!-- header title & content -->
     <section class="container">
       <h1 class="title is-1">RainProof</h1>
-​
-​
+
+
       <!-- date picker -->
       <div class="field has-addons">
         <div class="control" id='datetimepicker1'>
           <input class="input" type="date" name="date" id="datePicker" data-select="datepicker">
         </div>
-​
+
       </div>
-​
+
       <div class="dropdown">
         <div class="dropdown-trigger control">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -49,7 +49,7 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu" role="menu">
           <div class="dropdown-content" id="dropdown-list">
-​
+
             <a href="#" class="dropdown-item">
               ACT
             </a>
@@ -74,27 +74,27 @@
             <a href="#" class="dropdown-item">
               WA
             </a>
-​
+
           </div>
         </div>
-​
+
     </section>
   </header>
-​
+
   <main class="container">
     <section class="columns">
-​
+
       <!-- right hand side column -->
       <div class="column">
         <div class="results is-fluid" id="results">
           <!-- filtered results to show here -->
           <!-- main events list -->
           <div id='events-panel' class="panel panel-primary">
-​
+
             <div class="panel-heading has-background-primary has-text-white">
               <h3 class="panel-title">Whats On</h3>
             </div>
-​
+
             <div class="panel-body">
               <div id="events" class="list-group">
                 <!-- result 1 -->
@@ -121,24 +121,24 @@
                   <p class="list-group-item-text"></p>
                   <p class="venue"></p>
                 </a>
-​
+
               </div>
             </div>
-​
+
             <div class="panel-footer">
               <!-- page scroll arrows -->
               <ul class="pager">
                 <li id="prev" class="previous"><a><span aria-hidden="true">&larr;</span></a></li>
                 <li id="next" class="next"><a><span aria-hidden="true">&rarr;</span></a></li>
               </ul>
-​
+
             </div>
-​
+
           </div>
-​
-​
-​
-​
+
+
+
+
           <!-- single event panel -->
           <div id='attraction-panel' class="panel panel-primary">
             <div class="panel-heading has-background-primary has-text-white">
@@ -147,7 +147,7 @@
                 <h3 class="column panel-title attractheader" id="backBtn">Back</h3>
               </a>
             </div>
-​
+
             <div id="attraction" class="columns">
               <img class="column is-one-third" src="">
               <div class="column">
@@ -157,37 +157,37 @@
                 <p id="infoText"></p>
                 <a id="ticketLink" href="" target="_blank">Buy Tickets</a>
                 <p id="location"></p>
-                <input type="button" id="loadMap" value="testing">
-​
+                <input type="button" id="loadMap" value="Show Location">
+
               </div>
-​
+
             </div>
           </div>
-​
-​
+
+
         </div>
       </div>
-​
+
     </section>
-​
-​
+
+
     <!-- Google Maps section -->
     <section class="container">
-​
+
       <div id="map_div" style="height: 400px;"></div>
-​
+
     </section>
-​
-​
+
+
   </main>
-​
-​
+
+
 </body>
-​
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <script src="./assets/js/script.js"></script>
 <script src="./assets/js/bulma-calendar.min.js"></script>
-​
-​
+
+
 </html>
