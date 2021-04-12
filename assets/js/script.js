@@ -3,19 +3,12 @@ var page = 0;
 var map;
 var newSelectedDate;
 
-
-console.log(page);
-
-
 /* locations dropdown opens on click */
 var dropdown = document.querySelector('.dropdown');
 dropdown.addEventListener('click', function (event) {
     event.stopPropagation();
     dropdown.classList.toggle('is-active');
-
 });
-
-
 
 /* show map when list item is clicked */
 var listItem = document.querySelectorAll('.list-group-item')
@@ -32,19 +25,11 @@ backBtn.addEventListener('click', function (event) {
 
 });
 
-
-/// date picker on change updates date variable and load API
-document.getElementById("datePicker").addEventListener("change", function () {
-
-    newSelectedDate = this.value; // Update newSelectedDate value.
-    var newDate = moment(newSelectedDate).format("YYYY-MM-DDTHH:mm:ss") + "Z";
-    console.log(newDate); // Now has a string.
-
-
-
+function fetchTicketMasterData() {
+    var newDate = moment(this.value || Date.now()).format("YYYY-MM-DDTHH:mm:ss") + "Z";
+    console.log(newDate)
     // getEvents function loads data and show/hides
     function getEvents() {
-        var data;
         //show hide panels 
         $('#events-panel').show();
         $('#attraction-panel').hide();
@@ -56,7 +41,35 @@ document.getElementById("datePicker").addEventListener("change", function () {
             async: true,
             dataType: "json",
             success: function (json) {
-                showEvents(json);
+                var items = $('#events .list-group-item');
+                items.hide();
+
+                var events = json._embedded.events;
+                var item = items.first();
+
+                for (var i = 0; i < events.length; i++) {
+                    item.children('.list-group-item-heading').text(events[i].name);
+                    item.children('.list-group-item-text').text(events[i].dates.start.localDate);
+                    try {
+                        item.children('.venue').text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+
+                    item.show();
+                    item.off("click");
+                    item.click(events[i], function (eventObject) {
+                        console.log(eventObject.data);
+                        try {
+                            getAttraction(eventObject.data._embedded.attractions[0].id, eventObject.data);
+                        }
+                        catch (err) {
+                            console.log(err);
+                        }
+                    });
+                    item = item.next();
+                }
                 console.log(json);
             },
 
@@ -64,40 +77,6 @@ document.getElementById("datePicker").addEventListener("change", function () {
                 console.log(err);
             }
         });
-
-
-        function showEvents(json) {
-            var items = $('#events .list-group-item');
-            items.hide();
-
-            var events = json._embedded.events;
-            var item = items.first();
-
-            for (var i = 0; i < events.length; i++) {
-                item.children('.list-group-item-heading').text(events[i].name);
-                item.children('.list-group-item-text').text(events[i].dates.start.localDate);
-                try {
-                    item.children('.venue').text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
-                }
-                catch (err) {
-                    console.log(err);
-                }
-
-                item.show();
-                item.off("click");
-                item.click(events[i], function (eventObject) {
-                    console.log(eventObject.data);
-                    try {
-                        getAttraction(eventObject.data._embedded.attractions[0].id, eventObject.data);
-                    }
-                    catch (err) {
-                        console.log(err);
-                    }
-                });
-                item = item.next();
-            }
-        }
-
     }
 
 
@@ -110,11 +89,7 @@ document.getElementById("datePicker").addEventListener("change", function () {
     $('#prev').click(function () {
         getEvents(page--);
         console.log(page);
-        if (page < 1) {
-            page = 1;
-        }
-
-
+        if (page < 1) page = 1;
     });
 
     $('#next').click(function () {
@@ -159,7 +134,14 @@ document.getElementById("datePicker").addEventListener("change", function () {
 
     }
 
-});
+}
+
+$(function () {
+    fetchTicketMasterData()
+})
+
+/// date picker on change updates date variable and load API
+document.getElementById("datePicker").addEventListener("change", fetchTicketMasterData);
 
 
 
