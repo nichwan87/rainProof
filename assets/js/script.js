@@ -214,3 +214,4 @@ google.maps.event.addDomListener(document.getElementById("loadMap"), "click", fu
             map: map
         }, "<h1>Marker 2</h1><p>This is marker 2</p>"); */
 });
+​
