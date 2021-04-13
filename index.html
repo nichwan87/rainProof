@@ -1,41 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/reset.css"/>
-    <link rel="stylesheet" href="./assets/css/style.css"/>
-    <!-- bulma calendar extension -->
-    <link rel="stylesheet" href="./assets/css/bulma-calendar.min.css"/>
-    <!-- Font awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <!-- GoogleMaps -->
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDsTj7ImeafsqpFaMKu7wCZoooi0ktq1uw&v=3&amp;sensor=false"></script>
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api
-    /js?key=AIzaSyDsTj7ImeafsqpFaMKu7wCZoooi0ktq1uw&callback=initMap"></script> -->
-
-    <title>RainProof Event Planner</title>
-  </head>
-  <body>
-
-      <header>
-        <!-- header title & content -->
-        <section class="container">
-        <h1 class="title is-1">RainProof</h1>
-      
-
-         <!-- date picker -->
-         <div class="field has-addons">
-          <div class="control">
-        <input class="input" type="date" name="date" id="date" data-select="datepicker">
-
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -49,9 +14,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/files/favicon-32x32.png">
   <!-- GoogleMaps -->
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
-
+  <script type="text/javascript"
+    src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDsTj7ImeafsqpFaMKu7wCZoooi0ktq1uw&v=3&amp;"></script>
   <title>RainProof Event Planner</title>
 </head>
 
@@ -60,33 +27,29 @@
   <header>
     <!-- header title & content -->
     <section class="container">
-      <h1 class="title is-1">RainProof</h1>
+
+      <h1 type="button" onClick="history.go(0)" class="title is-1" id="logo">RainProof</h1>
 
 
       <!-- date picker -->
-      <div class="field has-addons">
-        <div class="control">
+      <div class="field has-addons" id="datecontainer">
+        <div class="control" id='datetimepicker1'>
           <input class="input" type="date" name="date" id="datePicker" data-select="datepicker">
         </div>
-
       </div>
 
-
       <div class="dropdown">
-        <div class="dropdown-trigger control">
-          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span>Select location</span>
-            <span class="icon is-small">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-          <div class="dropdown-content" id="dropdown-list">
-
-          </div>
-        </div>
-
+        <select class="button" onchange="fetchTicketMasterData()" id="dropDowncontainer">
+          <!--  <option>All of Australia</option> -->
+          <option>ACT</option>
+          <option>NT</option>
+          <option>QLD</option>
+          <option>SA</option>
+          <option>TAS</option>
+          <option>VIC</option>
+          <option>WA</option>
+        </select>
+      </div>
     </section>
   </header>
 
@@ -104,14 +67,18 @@
               <h3 class="panel-title">Whats On</h3>
             </div>
 
+            <!-- type="button" id="loadMap" -->
+
             <div class="panel-body">
               <div id="events" class="list-group">
                 <!-- result 1 -->
-                <a href="#" class="list-group-item" id="listItem">
+
+                <a href="#" class="list-group-item" type="button">
                   <h4 class="list-group-item-heading"></h4>
                   <p class="list-group-item-text"></p>
                   <p class="venue"></p>
                 </a>
+
                 <!-- result 2 -->
                 <a href="#" class="list-group-item" id="listItem">
                   <h4 class="list-group-item-heading"></h4>
@@ -146,8 +113,6 @@
           </div>
 
 
-
-
           <!-- single event panel -->
           <div id='attraction-panel' class="panel panel-primary">
             <div class="panel-heading has-background-primary has-text-white">
@@ -157,13 +122,18 @@
               </a>
             </div>
 
+
             <div id="attraction" class="columns">
               <img class="column is-one-third" src="">
               <div class="column">
                 <h4 class="list-group-item-heading"></h4>
                 <p id="classification"></p>
+                <p id="venueText"></p>
                 <p id="infoText"></p>
                 <a id="ticketLink" href="" target="_blank">Buy Tickets</a>
+                <p id="location"></p>
+                <!-- <div id="loadMap">View Map</div> -->
+
               </div>
 
             </div>
