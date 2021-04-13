@@ -1,37 +1,32 @@
-## Welcome to GitHub Pages
+## rainProof
+An app that assists users find events, concerts and entertainment schedules. 
+The app will pin-point event locations and can have events filtered by date and state of Australia.
+This app allows users to be 'RainProof' so that RainChecks are not needed when planning outings.
+Links to the payment pages to book the viewable events will be provided if the user selects an event.
 
-You can use the [editor on GitHub](https://github.com/WillBill84/rainProof/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+# How to use
+Deployed App: [App](.\assets\files\deployedApp.jpg)
+Click on the date selector and choose a date [example1](.\assets\files\datePicker.jpg)
+Click on the state dropdown menu and choose a state [example2](.\assets\files\statePicker.jpg)
+Navigate through events [navigateEvents](.\assets\files\pageFunctions.jpg)
+Click on an event
+--> the event will populate with a title, brief description, a marker on a map as to where the event is and a link to click on to purchase tickets to the event.
+Click back in the event container to go back. [eventPage](.\assets\files\insideEvent.jpg)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Support
+Please contact Will, Dinh or Nicholas for any support related enquiries.
 
-### Markdown
+# Roadmap
+Future updates will include having browser back buttons work to move between the event description and the events overview.
+The 'next' button in the events overview section will be worked on to only scroll forward if further events are scheduled for the selected date.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Contributing
+Pull requests are welcome with tracking. Any major changes are requested to be approved via the support email - (nichwan_is@hotmail.com)
 
-```markdown
-Syntax highlighted code block
+# Acknowledgement
+Thank you to Monash Bootcamp for providing files to work through
+Thank you to stackoverflow and w3schools for additional resources to work through this with
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/WillBill84/rainProof/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+# License
+Will, Dinh and Nicholas with Monash
+=======
