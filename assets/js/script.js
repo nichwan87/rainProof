@@ -3,6 +3,8 @@ var page = 0;
 var map;
 var newSelectedDate;
 
+
+
 /* locations dropdown opens on click */
 var dropdown = document.querySelector('.dropdown');
 dropdown.addEventListener('click', function (event) {
@@ -20,24 +22,38 @@ listItem.forEach(function (el) {
 
 /* hide map when back buttonis clicked */
 var backBtn = document.querySelector('#backBtn');
-backBtn.addEventListener('click', function (event) {
+backBtn.addEventListener('click', function () {
     $('#map_div').hide();
 
 });
 
+// current date placeholder when page is loaded
+var date = moment()
+$("#datePicker").val(date.format('YYYY-MM-DD'));
+
 function fetchTicketMasterData() {
+
+    // datepicker
     var newDate = moment(this.value || Date.now()).format("YYYY-MM-DDTHH:mm:ss") + "Z";
     console.log(newDate)
+
+    // statepicker
+    selectState = document.getElementById("dropDowncontainer").value;
+    console.log(selectState)
+
+
     // getEvents function loads data and show/hides
     function getEvents() {
         //show hide panels 
         $('#events-panel').show();
         $('#attraction-panel').hide();
+        $('#datecontainer').show();
+        $('#dropDowncontainer').show();
 
         // main Events load
         $.ajax({
             type: "GET",
-            url: "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=AU&sort=date,asc&startDateTime=" + newDate + "&apikey=EMZOAA3KlATktn9bwYV8aKh7yFnEm92G&page=" + page,
+            url: "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=AU&sort=date,asc&startDateTime=" + newDate + "&stateCode=" + selectState + "&apikey=EMZOAA3KlATktn9bwYV8aKh7yFnEm92G&page=" + page,
             async: true,
             dataType: "json",
             success: function (json) {
@@ -70,19 +86,20 @@ function fetchTicketMasterData() {
                     });
                     item = item.next();
                 }
+
                 console.log(json);
             },
+
 
             error: function (xhr, status, err) {
                 console.log(err);
             }
+
         });
+
     }
 
 
-
-    // initial call to load events
-    getEvents(page);
 
 
     // arrows on click change page up or down
@@ -90,15 +107,24 @@ function fetchTicketMasterData() {
         getEvents(page--);
         console.log(page);
         if (page < 1) page = 1;
+
     });
 
     $('#next').click(function () {
+
         getEvents(page++);
         console.log(page);
+
     });
 
 
-    // loads a single event if clicked and show/hides panels
+    // call to load events
+    getEvents();
+
+
+
+
+    // loads a single event when clicked and show/hides panels
     function getAttraction(id, event) {
         $.ajax({
             type: "GET",
@@ -116,11 +142,12 @@ function fetchTicketMasterData() {
 
     // shows the attraction panel for a clicked event
     function showAttraction(json) {
+        $('#datecontainer').hide();
+        $('#dropDowncontainer').hide();
         $('#events-panel').hide();
         $('#attraction-panel').show();
-
         $('#backBtn').click(function () {
-            getEvents(page);
+            getEvents();
         });
         $('#choosenTitle').text(json._embedded.attractions[0].name);
         $('#attraction .list-group-item-heading').first().text(json.name);
@@ -129,32 +156,30 @@ function fetchTicketMasterData() {
         $('#venueText').text(json._embedded.venues[0].name);
         $('#infoText').text(json.info);
         $('#ticketLink').first().attr('href', json.url);
-        $('#location').hide().text(json._embedded.venues[0].location.latitude +"_" + json._embedded.venues[0].location.longitude);       
-   
+        $('#location').text(json._embedded.venues[0].location.latitude + "_" + json._embedded.venues[0].location.longitude);
         console.log(json._embedded.venues[0].name);
-
+        /* load google map */
+        showMap()
 
     }
 
 }
 
+fetchTicketMasterData()
 
-$(function () {
-    fetchTicketMasterData()
-})
 
 /// date picker on change updates date variable and load API
 document.getElementById("datePicker").addEventListener("change", fetchTicketMasterData);
 
 
+/* document.getElementById("dropDowncontainer").addEventListener("change", fetchTicketMasterData); */
+
+/* document.getElementById("dropDowncontainer").addEventListener("change", fetchTicketMasterData); */
 
 
 
-
-/*
- * use google maps api built-in mechanism to attach dom events
- */
-google.maps.event.addDomListener(document.getElementById("loadMap"), "click", function () {
+function showMap() {
+    /* google.maps.event.addDomListener(document.querySelector("#loadMap"), "click", function () { */
 
     /*
      * create map
@@ -187,12 +212,15 @@ google.maps.event.addDomListener(document.getElementById("loadMap"), "click", fu
         return marker;
     }
 
+    /*
+     * add markers to map
+     */
+
+    var location = $('#location').text().split('_');
     var marker1 = createMarker({
-       //position: new google.maps.LatLng(33.818038, -117.928492),
-       position: new google.maps.LatLng(location[0], location[1]),
+        //position: new google.maps.LatLng(33.818038, -117.928492),
+        position: new google.maps.LatLng(location[0], location[1]),
         map: map
     }, "<h1>Marker 1</h1><p>This is marker 1</p>");
-
-});
-
+};
 
