@@ -5,13 +5,13 @@ This app allows users to be 'RainProof' so that RainChecks are not needed when p
 Links to the payment pages to book the viewable events will be provided if the user selects an event.
 
 # How to use
-Deployed App: [App](.\assets\files\deployedApp.jpg)
-Click on the date selector and choose a date [example1](.\assets\files\datePicker.jpg)
-Click on the state dropdown menu and choose a state [example2](.\assets\files\statePicker.jpg)
-Navigate through events [navigateEvents](.\assets\files\pageFunctions.jpg)
+Deployed App: [App](./assets/files/deployedApp.jpg)
+Click on the date selector and choose a date [example1](./assets/files/datePicker.jpg)
+Click on the state dropdown menu and choose a state [example2](./assets/files/statePicker.jpg)
+Navigate through events [navigateEvents](./assets/files/pageFunctions.jpg)
 Click on an event
 --> the event will populate with a title, brief description, a marker on a map as to where the event is and a link to click on to purchase tickets to the event.
-Click back in the event container to go back. [eventPage](.\assets\files\insideEvent.jpg)
+Click back in the event container to go back. [eventPage](./assets/files/insideEvent.jpg)
 
 # Support
 Please contact Will, Dinh or Nicholas for any support related enquiries.
